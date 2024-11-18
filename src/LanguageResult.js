@@ -5,7 +5,7 @@ Author Nito T.M. (https://github.com/nitotm)
 Package npmjs.com/package/eld
 */
 
-import { avgScore } from './avgScore.js'
+import { avgScore } from "./avgScore.js";
 
 export class LanguageResult {
   /**
@@ -17,10 +17,10 @@ export class LanguageResult {
    * @param {Object} langCodes
    * @memberof LanguageResult
    */
-  constructor (language, results, numNgrams, langCodes) {
-    this.language = language
-    this.getScores = () => getScores(results, langCodes) // returns object
-    this.isReliable = () => isReliable(results, numNgrams, language) // returns boolean
+  constructor(language, results, numNgrams, langCodes) {
+    this.language = language;
+    this.getScores = () => getScores(results, langCodes); // returns object
+    this.isReliable = () => isReliable(results, numNgrams, language); // returns boolean
   }
 }
 
@@ -30,15 +30,16 @@ export class LanguageResult {
  * @param {string} language
  * @returns {boolean}
  */
-function isReliable (results, numNgrams, language) {
+function isReliable(results, numNgrams, language) {
   if (!results.length || numNgrams < 3) {
-    return false
+    return false;
   }
-  const nextScore = results.length > 1 ? results[1][0] : 0
+  const nextScore = results.length > 1 ? results[1][0] : 0;
   // A minimum of a 24% per ngram score from average
-  return !(avgScore[language] * 0.24 > results[0][1] / numNgrams || 0.01 >
-    Math.abs(results[0][1] - nextScore))
-
+  return !(
+    avgScore[language] * 0.24 > results[0][1] / numNgrams ||
+    0.01 > Math.abs(results[0][1] - nextScore)
+  );
 }
 
 /**
@@ -47,16 +48,15 @@ function isReliable (results, numNgrams, language) {
  * @param {Object} langCodes
  * @returns {Object}
  */
-function getScores (results, langCodes) {
-  let scores = {}
-  let key
+function getScores(results, langCodes) {
+  let scores = {};
+  let key;
   for (key in results) {
-    let score = results[key][1]
+    let score = results[key][1];
     if (score === 0) {
-      break
+      break;
     }
-    scores[langCodes[results[key][0]]] = score
+    scores[langCodes[results[key][0]]] = score;
   }
-  return scores
+  return scores;
 }
-

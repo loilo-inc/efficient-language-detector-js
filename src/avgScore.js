@@ -60,7 +60,7 @@ export const avgScore = {
   vi: 0.0467,
   yo: 0.0329,
   zh: 0.0152,
-}
+};
 
 /* Deprecated for now: Some languages score higher with the same amount of text, this multiplier evens it out for
  *  multi-language strings

@@ -17,6 +17,9 @@
     "language-detector",
     "language-identification"
   ],
+  "scripts": {
+    "fmt": "prettier 'src/**/*.js' --write"
+  },
   "author": {
     "name": "Nito T.M.",
     "url": "https://github.com/nitotm"
@@ -26,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/nitotm/efficient-language-detector-js/issues"
   },
-  "homepage": "https://github.com/nitotm/efficient-language-detector-js#readme"
+  "homepage": "https://github.com/nitotm/efficient-language-detector-js#readme",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
 }

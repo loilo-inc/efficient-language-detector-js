@@ -62,7 +62,7 @@ function detect(text) {
     language,
     results,
     numNgrams,
-    languageData.langCodes
+    languageData.langCodes,
   );
 }
 
@@ -85,12 +85,12 @@ function getCleanTxt(str) {
   // Remove URLS
   str = str.replace(
     /[hw]((ttps?:\/\/(www\.)?)|ww\.)([^\s/?.#-]+\.?)+(\/\S*)?/gi,
-    " "
+    " ",
   );
   // Remove emails
   str = str.replace(
     /[a-zA-Z0-9.!$%&’+_`-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9-]{2,64}/g,
-    " "
+    " ",
   );
   // Remove .com domains
   str = str.replace(matchDomains, " ");
@@ -301,7 +301,7 @@ function makeSubset(languages) {
     for (let key in languages) {
       // Validate languages, by checking if they are available at languageData
       let lang = Object.keys(languageData.langCodes).find(
-        (lkey) => languageData.langCodes[lkey] === languages[key]
+        (lkey) => languageData.langCodes[lkey] === languages[key],
       );
       if (lang) {
         subset.push(parseInt(lang));
@@ -346,7 +346,7 @@ function saveSubset(languages) {
     langArray,
     languageData.ngrams,
     languageData.langCodes,
-    languageData.type
+    languageData.type,
   );
 }
 
