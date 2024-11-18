@@ -2,7 +2,7 @@
   "name": "eld",
   "version": "1.0.1",
   "description": "Fast and accurate natural language detection. Detector written in Javascript. Efficient language detector, Nito-ELD, ELD.",
-  "main": "src/languageDetector.js",
+  "main": "src/entries/dynamic.js",
   "type": "module",
   "repository": {
     "type": "git",
